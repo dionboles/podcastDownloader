@@ -1,7 +1,8 @@
 let Parser = require('rss-parser');
 let parser = new Parser();
-var fs = require('fs');
-var request = require('request');
+let fs = require('fs');
+let request = require('request');
+let proceess = require("process").chdir;
 let FolderName = "Dowloaded_Podcasts"
 try {
     if (!fs.existsSync(FolderName)){
@@ -10,20 +11,21 @@ try {
   } catch (err) {
     console.error(err)
   }
+  proceess("./"+FolderName);
 (async () => {
  try{
-    let feed = await parser.parseURL('http://atp.fm/episodes?format=rss');
+    let feed = await parser.parseURL('https://www.relay.fm/radar/feed');
     console.log(feed.title);
         
     feed.items.forEach((item,i) => {
-        var file = fs.createWriteStream("."+FolderName+`${item.title}`+".mp3");
+        let file = fs.createWriteStream(`${item.title}`+".mp3");
         console.log(i)
         if( i != 5){
             request.get(item.enclosure.url).on('error', function(err) {
                 // handle error
             }).pipe(file)
         }else{
-            throw BreakException;
+            throw 0;
         }
     });
 }catch (error){
