@@ -3,7 +3,7 @@ let parser = new Parser();
 let fs = require('fs');
 let request = require('request');
 let proceess = require("process").chdir;
-let FolderName = "Dowloaded_Podcasts"
+let FolderName = "Downloaded_Podcasts"
 try {
     if (!fs.existsSync(FolderName)){
       fs.mkdirSync(FolderName)
