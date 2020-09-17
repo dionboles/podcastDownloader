@@ -15,6 +15,7 @@ try {
 
 interface podObject {
   title: string;
+  url: string;
   enclosure: {
     url: string;
   };
