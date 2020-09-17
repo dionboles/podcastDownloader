@@ -1,0 +1,11 @@
+verison: 0.2
+
+phases:
+  install:
+    runtime-verison:
+      java: openjdk11
+
+    commands:
+      - apt-get update -y
+      - apt-get install -y maven
+      - pip3 install --upgrade awscil
