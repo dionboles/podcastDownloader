@@ -9,3 +9,6 @@ phases:
       - apt-get update -y
       - apt-get install -y maven
       - pip3 install --upgrade awscil
+  build:
+    commands:
+      - echo Testing
