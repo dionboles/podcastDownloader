@@ -1,12 +1,6 @@
 version: 0.2
+
 phases:
-  install:
-    runtime-version:
-      java: openjdk11
-  commands:
-    - apt-get update -y
-    - apt-get install -y maven
-    - pip3 install --upgrade awscil
   build:
     commands:
       - echo Testing
